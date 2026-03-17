@@ -1,0 +1,345 @@
+:root {
+  --bg: #e8dfd1;
+  --bg-deep: #d5c4aa;
+  --panel: rgba(24, 25, 28, 0.9);
+  --panel-soft: rgba(39, 41, 47, 0.72);
+  --text: #f2ede4;
+  --muted: #c8beae;
+  --ink: #211d1a;
+  --accent: #d8a11a;
+  --accent-soft: #6ea4c8;
+  --line: rgba(255, 255, 255, 0.12);
+  --shadow: 0 20px 60px rgba(20, 15, 8, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(110, 164, 200, 0.25), transparent 32%),
+    radial-gradient(circle at 80% 20%, rgba(216, 161, 26, 0.34), transparent 24%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+  font-family: "Avenir Next", "Gill Sans", "Trebuchet MS", sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent 82%);
+}
+
+.page-shell {
+  width: min(1180px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 28px 0 64px;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 0 4px 24px;
+  color: var(--ink);
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.site-title {
+  font-family: "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: clamp(1.5rem, 2vw, 2.1rem);
+  letter-spacing: 0.02em;
+}
+
+.site-nav {
+  margin-left: auto;
+}
+
+.site-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.92rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(33, 29, 26, 0.25);
+}
+
+.hero,
+.panel {
+  backdrop-filter: blur(16px);
+  background: linear-gradient(180deg, var(--panel), var(--panel-soft));
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.02fr 1.18fr;
+  gap: 28px;
+  padding: 28px;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.kicker,
+.section-tag,
+.label {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 500;
+}
+
+h1 {
+  max-width: 12ch;
+  font-family: "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
+  line-height: 0.96;
+}
+
+h1 span {
+  display: block;
+  color: var(--accent);
+}
+
+.lede {
+  max-width: 58ch;
+  margin: 18px 0 24px;
+  color: var(--muted);
+  font-size: 1.03rem;
+  line-height: 1.7;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.stats-grid div,
+.formula-card,
+.info-card {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.stats-grid dt {
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.stats-grid dd {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.hero-media {
+  margin: 0;
+}
+
+.hero-media img,
+.gallery-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.hero-media figcaption,
+.gallery-grid figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.panel {
+  margin-top: 26px;
+  padding: 24px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.section-head h2 {
+  font-family: "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+}
+
+.formula-stack {
+  display: grid;
+  gap: 16px;
+}
+
+.formula-card code {
+  display: block;
+  color: var(--text);
+  font-family: "IBM Plex Mono", "SFMono-Regular", "Consolas", monospace;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+.formula-card.accent {
+  border-color: rgba(216, 161, 26, 0.42);
+  background: linear-gradient(180deg, rgba(216, 161, 26, 0.14), rgba(255, 255, 255, 0.04));
+}
+
+.cards,
+.gallery-grid,
+.intro-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.info-card h3 {
+  margin-bottom: 10px;
+  font-family: "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1.45rem;
+}
+
+.info-card p,
+.rationale p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.rationale p + p {
+  margin-top: 16px;
+}
+
+.gallery-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.intro-note {
+  max-width: 72ch;
+  margin: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.intro-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.intro-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.intro-card h3 {
+  margin-bottom: 12px;
+  font-family: "Iowan Old Style", "Palatino Linotype", serif;
+  font-size: 1.35rem;
+}
+
+.intro-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.intro-card p + p {
+  margin-top: 14px;
+}
+
+.gallery-grid figure {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+code {
+  color: #ffe4a1;
+}
+
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .cards,
+  .gallery-grid,
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100vw - 18px, 100%);
+    padding-top: 16px;
+  }
+
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 18px;
+  }
+
+  .hero,
+  .panel {
+    border-radius: 22px;
+    padding: 18px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    max-width: none;
+  }
+}

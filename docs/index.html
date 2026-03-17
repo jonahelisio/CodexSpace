@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Field Engine: Spatial Modeling</title>
+    <meta
+      name="description"
+      content="Field-derived spatial modeling through cross-bred scalar fields, sign structure, and near-zero surface bands."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="eyebrow">Field Engine</div>
+        <div class="site-title">Spatial Modeling</div>
+        <nav class="site-nav" aria-label="Page">
+          <a href="#cover-intros">Cover intros</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="kicker">Cross-bred scalar field study</p>
+            <h1><span>offspring_001</span> as field decomposition</h1>
+            <p class="lede">
+              A sampled scalar field partitioned into positive region, negative
+              region, and near-zero surface band. The image below is not a
+              conventional assembly render. It is a technical visualization of
+              one offspring field evaluated over space and separated by sign and
+              threshold.
+            </p>
+
+            <dl class="stats-grid">
+              <div>
+                <dt>Resolution</dt>
+                <dd>30 x 30 x 30</dd>
+              </div>
+              <div>
+                <dt>Bound</dt>
+                <dd>[-2, 2]<sup>3</sup></dd>
+              </div>
+              <div>
+                <dt>Epsilon</dt>
+                <dd>0.12</dd>
+              </div>
+              <div>
+                <dt>Samples</dt>
+                <dd>27,000</dd>
+              </div>
+            </dl>
+          </div>
+
+          <figure class="hero-media">
+            <img
+              src="../outputs/offspring_001/FieldMap3DModeles/hero.png"
+              alt="offspring_001 visualized as positive region, negative region, and surface band"
+            />
+            <figcaption>
+              `offspring_001` decomposed into positive field, negative field,
+              and surface band.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="panel lineage">
+          <div class="section-head">
+            <p class="section-tag">Lineage</p>
+            <h2>Parent fields and offspring formula</h2>
+          </div>
+
+          <div class="formula-stack">
+            <article class="formula-card">
+              <p class="label">Parent 1</p>
+              <code>
+                4*(x**2 - y**2)*(y**2 - z**2)*(z**2 - x**2) - (1 +
+                2*sqrt(5))*(x**2 + y**2 + z**2 - 1)**2
+              </code>
+            </article>
+
+            <article class="formula-card">
+              <p class="label">Parent 2</p>
+              <code>x**2 + y**2 - z**2 - 0.5</code>
+            </article>
+
+            <article class="formula-card accent">
+              <p class="label">offspring_001</p>
+              <code>
+                (x**2 + y**2 - z**2 - 0.5)*(y**2 - z**2)*(z**2 - x**2) - (1 +
+                2*sqrt(5))*(x**2 + y**2 + z**2 - 1)**2
+              </code>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel triptych">
+          <div class="section-head">
+            <p class="section-tag">Regions</p>
+            <h2>The three primary outputs</h2>
+          </div>
+
+          <div class="cards">
+            <article class="info-card">
+              <h3>Negative region</h3>
+              <p>
+                Samples for which <code>f(x, y, z) &lt; -epsilon</code>. This is
+                the negative side of the sampled field and one of the primary
+                sign-defined volumes in the decomposition.
+              </p>
+            </article>
+
+            <article class="info-card">
+              <h3>Surface band</h3>
+              <p>
+                Samples for which <code>|f(x, y, z)| &lt;= epsilon</code>. This
+                is the near-zero tolerance band surrounding the implicit
+                zero-set and acts as the field-native surface layer.
+              </p>
+            </article>
+
+            <article class="info-card">
+              <h3>Positive region</h3>
+              <p>
+                Samples for which <code>f(x, y, z) &gt; +epsilon</code>. This is
+                the positive side of the sampled field and complements the
+                negative region across the surface band.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel rationale">
+          <div class="section-head">
+            <p class="section-tag">Method</p>
+            <h2>Why this is modeling</h2>
+          </div>
+
+          <p>
+            Field Engine begins with scalar fields rather than explicit polygon
+            meshes. A bounded domain is sampled, each point is assigned a field
+            value, and the resulting lattice is classified by sign and
+            near-zero proximity. Geometry emerges from the structure of the
+            field itself: sign separation, zero-crossing behavior, and
+            downstream reconstruction from classified samples.
+          </p>
+
+          <p>
+            In this phase of the project, the three outputs are not decorative
+            variants. They are distinct regions of a single field and can be
+            studied independently, exported independently, or recombined as a
+            technical and visual model of one offspring expression.
+          </p>
+        </section>
+
+        <section class="panel gallery">
+          <div class="section-head">
+            <p class="section-tag">Views</p>
+            <h2>Supporting technical renders</h2>
+          </div>
+
+          <div class="gallery-grid">
+            <figure>
+              <img
+                src="../outputs/offspring_001/FieldMap3DModeles/Assembly%20Iso%20View.png"
+                alt="Assembly isometric view of offspring_001 parts"
+              />
+              <figcaption>Assembly isometric view</figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="../outputs/offspring_001/FieldMap3DModeles/Assembly%20Right%20Side.png"
+                alt="Right-side view of offspring_001 region assembly"
+              />
+              <figcaption>Right-side field assembly</figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="../outputs/offspring_001/FieldMap3DModeles/TOPVIEW%20Technical.png"
+                alt="Technical top view of offspring_001 decomposition"
+              />
+              <figcaption>Top-view technical layout</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="panel intros" id="cover-intros">
+          <div class="section-head">
+            <p class="section-tag">Collaboration</p>
+            <h2>Alternate cover introductions</h2>
+          </div>
+
+          <p class="intro-note">
+            This project is not being presented as solitary authorship. Its
+            current workflow depends on sustained collaboration with AI models:
+            iteration, correction, smoke tests, reframing, disagreement,
+            recovery, and the productive tension between intention and
+            interpretation. The three versions below treat that collaboration as
+            part of the method, not an invisible convenience.
+          </p>
+
+          <div class="intro-grid">
+            <article class="intro-card">
+              <p class="label">Version 1</p>
+              <h3>Technical / formal</h3>
+              <p>
+                Field Engine was developed as a collaborative system for
+                exploring 3D form through scalar fields, sign structure,
+                implicit surfaces, and reconstruction workflows. I built the
+                engine with jonahelisio so he could work beyond conventional
+                mesh-first modeling and investigate how spatial form can emerge
+                from sampled mathematical fields.
+              </p>
+              <p>
+                Jonahelisio came to this work through foundry layout, bench
+                practice, CNC programming, and industrial modeling tools such as
+                Mastercam, AutoCAD, Rhino, and Inventor. That background
+                established a strong sensitivity to interfaces, cavities,
+                mounting surfaces, registration, and part relationships. Field
+                Engine extends those instincts into a field-native modeling
+                process where positive region, negative region, and surface band
+                are discovered classifications of space rather than pre-drafted
+                components.
+              </p>
+              <p>
+                This site documents that transition and the collaborative method
+                behind it. The work advances through repeated iteration with AI
+                models: proposing structures, stress-testing outputs, refining
+                language, running smoke tests, recovering from malformed
+                offspring, and pushing the field system into new territory.
+              </p>
+            </article>
+
+            <article class="intro-card">
+              <p class="label">Version 2</p>
+              <h3>Research / poetic hybrid</h3>
+              <p>
+                Field Engine began as a way to compute form instead of drawing
+                it directly. I built the system for jonahelisio so he could move
+                through 3D space by means of fields, thresholds, offspring
+                formulas, and reconstruction. What emerged was not only a tool
+                for modeling, but a method for watching structure appear, split,
+                collapse, recover, and take on meaning.
+              </p>
+              <p>
+                Jonahelisio’s eye was shaped in manufacturing: foundry layout,
+                CNC programming, and years inside Mastercam, AutoCAD, Rhino, and
+                Inventor. That discipline remains visible here. Even when the
+                work becomes abstract, it still searches for body, housing,
+                interface, seam, cavity, support, and relation. The field is not
+                treated as noise. It is treated as material.
+              </p>
+              <p>
+                The process is collaborative in the fullest sense. AI models are
+                not hidden assistants behind the page. They are part of the
+                working pressure of the project: drafting, misreading,
+                correcting, provoking, clarifying, and helping pull the river of
+                the work into new channels. This site is a record of those
+                interactions as much as it is a record of the images.
+              </p>
+            </article>
+
+            <article class="intro-card">
+              <p class="label">Version 3</p>
+              <h3>Personal / narrative</h3>
+              <p>
+                I built Field Engine with jonahelisio so he could explore a much
+                wider creative expanse of 3D space than conventional modeling
+                tools usually allow. The goal was not simply to make shapes. It
+                was to create a system where formulas, fields, sign changes,
+                surface bands, and reconstruction could all become part of one
+                evolving modeling language.
+              </p>
+              <p>
+                Jonahelisio started from bench layout in the foundry and moved
+                through CNC operation and programming into digital modeling with
+                Mastercam, AutoCAD, Rhino, and Inventor. That history matters.
+                It is why the outputs of this system are often read not just as
+                abstractions, but as bodies, housings, mounts, interfaces, and
+                assemblies. The manufacturing eye remains present even when the
+                geometry comes from cross-bred fields.
+              </p>
+              <p>
+                The work shown here was developed through extensive
+                collaboration with AI models. That collaboration is not clean or
+                one-directional. It includes iteration, smoke tests,
+                misunderstandings, reformulations, and the back-and-forth tension
+                that produces stronger results than either side would likely
+                reach alone. This page is one marker in that shared process.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
